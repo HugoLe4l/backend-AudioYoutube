@@ -15,7 +15,7 @@ def video_info():
         return jsonify({ "mensage" : 'URL do video não enviada'}), 400
     
     try:
-            yt = YouTube(url)
+            yt = YouTube(url, client="WEB")  
             audio_Stream = yt.streams.filter(only_audio=True).first()
 
             info = {
@@ -84,4 +84,5 @@ def audio_download():
 
 """ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000) """
+
 
